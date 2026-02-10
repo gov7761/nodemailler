@@ -1,0 +1,28 @@
+{
+  "name": "nodetest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "smtp-test.js",
+  "scripts": {
+  "dev": "nodemon smtp-test.js",
+  "start": "node smtp-test.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "multer": "^2.0.2",
+    "mysql": "github:mysqljs/mysql",
+    "mysql2": "^3.16.3",
+    "nodemailer": "^7.0.13",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
