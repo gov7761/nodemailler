@@ -72,22 +72,27 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+
 const upload = multer({
-  dest: "uploads/",
+  storage: multer.memoryStorage(),
   limits: {
-    fileSize: MAX_FILE_SIZE
-  },
-  fileFilter: (req, file, cb) => {
-    const allowedExts = [".xls", ".xlsx"];
-    const ext = path.extname(file.originalname).toLowerCase();
-
-    if (!allowedExts.includes(ext)) {
-      return cb(new Error("Only Excel files (.xls, .xlsx) allowed"));
-    }
-
-    cb(null, true);
+    fileSize: 5 * 1024 * 1024 // 5MB
   }
 });
+app.post("/upload", upload.single("file"), async (req, res) => {
+  try {
+    const fileBuffer = req.file.buffer; // <-- IN MEMORY
+    const fileName = req.file.originalname;
+
+    // send to S3 / email / cloud
+    res.json({ success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Upload failed");
+  }
+});
+
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
