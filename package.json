@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "main": "smtp-test.js",
   "type": "commonjs",
+  "homepage": "https://gov7761.github.io/nodetest",
   "scripts": {
     "dev": "nodemon smtp-test.js",
-    "start": "node smtp-test.js"
+    "start": "node smtp-test.js",
+
+    "serve:static": "npx serve public",
+    "deploy": "gh-pages -d public"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -19,6 +23,8 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.11",
+    "gh-pages": "^6.1.1",
+    "serve": "^14.2.1"
   }
 }
