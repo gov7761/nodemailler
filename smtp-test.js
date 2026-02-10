@@ -17,8 +17,11 @@ app.use(express.static("public"));
 
 const ADMIN_ID = "admin";
 const ADMIN_PASS = "admin123";
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public", "login.html"));
+// });
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "login.html"));
+  res.status(200).send("Vercel function working");
 });
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
@@ -534,8 +537,14 @@ app.post("/save-test", (req, res) => {
     }
   );
 });
+process.on("unhandledRejection", err => {
+  console.error("UNHANDLED REJECTION:", err);
+});
+process.on("uncaughtException", err => {
+  console.error("UNCAUGHT EXCEPTION:", err);
+});
 
-
+module.exports = app;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
