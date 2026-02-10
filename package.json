@@ -1,16 +1,12 @@
 {
   "name": "nodetest",
   "version": "1.0.0",
-  "description": "",
   "main": "smtp-test.js",
-  "scripts": {
-  "dev": "nodemon smtp-test.js",
-  "start": "node smtp-test.js"
-},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon smtp-test.js",
+    "start": "node smtp-test.js"
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",

@@ -8,7 +8,7 @@ const mysql = require('mysql');
 const bcrypt = require("bcrypt");
 const fs = require("fs");
 const app = express();
-const PORT = 9006;
+const PORT = 9007;
 let isAdminLoggedIn = false;
 
 app.use(express.urlencoded({ extended: true }));
@@ -105,7 +105,7 @@ db.connect((err) => {
     console.error("Message:", err.message);
     process.exit(1);
   }
-  console.log("Connected to MySQL database!");
+  console.log("Connected to MySQL database! and vercel");
 });
 
 
